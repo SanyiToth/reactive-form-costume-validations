@@ -1,0 +1,23 @@
+<fieldset>
+  <form #costumeForm="ngForm" [formGroup]="myForm" (submit)="onSubmit()">
+    <div formGroupName="userName">
+      <div>
+        <label for="firstName">First name</label><br>
+        <input type="text" id="firstName" formControlName="firstName"><br>
+      </div>
+      <div>
+        <label for="lastName">Last name</label><br>
+        <input type="text" id="lastName" formControlName="lastName"><br>
+      </div>
+    </div>
+    <div>
+      <label for="email">Email</label><br>
+      <input type="email" id="email" formControlName="email"><br>
+    </div>
+    <div>
+      <label for="age" >Age</label><br>
+      <input type="text" id="age" formControlName="age"><br><br>
+    </div>
+    <button type="submit" [disabled]="costumeForm.invalid">Submit</button>
+  </form>
+</fieldset>
