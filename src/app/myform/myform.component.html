@@ -1,13 +1,13 @@
 <fieldset>
   <form #costumeForm="ngForm" [formGroup]="myForm" (submit)="onSubmit()">
-    <div formGroupName="userName">
+    <div formGroupName="name">
       <div>
         <label for="firstName">First name</label><br>
-        <input type="text" id="firstName" formControlName="firstName"><br>
+        <input type="text" id="firstName" formControlName="first"><br>
       </div>
       <div>
         <label for="lastName">Last name</label><br>
-        <input type="text" id="lastName" formControlName="lastName"><br>
+        <input type="text" id="lastName" formControlName="last"><br>
       </div>
     </div>
     <div>
@@ -15,9 +15,26 @@
       <input type="email" id="email" formControlName="email"><br>
     </div>
     <div>
-      <label for="age" >Age</label><br>
-      <input type="text" id="age" formControlName="age"><br><br>
+      <label for="age">Age</label><br>
+      <input type="text" id="age" formControlName="age"><br>
     </div>
+
+    <div>
+      <label for="bio">Bio</label><br>
+      <textarea name="bio" id="bio" formControlName="bio" rows="20" cols="50"></textarea>
+      <div>
+        <p>Characters left:{{descriptionLength}}</p>
+      </div>
+      <br><br>
+    </div>
+
     <button type="submit" [disabled]="costumeForm.invalid">Submit</button>
   </form>
 </fieldset>
+
+
+<div *ngFor="let formSubmit of formSubmits">
+  <mat-card>
+    <pre>{{formSubmit | json}}</pre>
+  </mat-card>
+</div>
